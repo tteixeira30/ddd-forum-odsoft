@@ -418,3 +418,13 @@ It's more of a formalization of all the knowledge from 2003-2018 revolving aroun
 - An Event Stormed model created that identified all the events, commands, queries, aggregates, and views.
 - Several of the policies/business rules thought out and identified that would affect how and when specific commands and events occur.
 - Wireframes created with Figma to verify the exact attributes that we'd need on each model.
+
+## Technical Notes
+
+### Using the API
+
+Examples of using the API (without authentication)
+
+  - Get popular posts:
+  GET http://localhost:5001/api/v1/posts/popular
+
