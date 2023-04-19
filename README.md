@@ -423,8 +423,24 @@ It's more of a formalization of all the knowledge from 2003-2018 revolving aroun
 
 ### Using the API
 
-Examples of using the API (without authentication)
+Examples of using the API (without authentication, using postman)
 
   - Get popular posts:
   GET http://localhost:5001/api/v1/posts/popular
+
+  - Get new posts:
+  GET http://localhost:5001/api/v1/posts/recent
+
+  - Get post by slug:
+  GET http://localhost:5001/api/v1/posts/?slug=9526372-gosto-muito-de-dd
+
+  - Get comments by slug:
+  GET http://localhost:5001/api/v1/comments/?slug=9526372-gosto-muito-de-dd
+### How to Admin da database
+  
+  use localhost:8080
+  server name: mysql
+  username: tonysoprano
+  pass: 12345678
+  db name: data_dev
 
