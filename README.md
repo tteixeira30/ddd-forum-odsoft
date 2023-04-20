@@ -438,9 +438,22 @@ Examples of using the API (without authentication, using postman)
   GET http://localhost:5001/api/v1/comments/?slug=9526372-gosto-muito-de-dd
 ### How to Admin da database
   
-  use localhost:8080
-  server name: mysql
-  username: tonysoprano
-  pass: 12345678
-  db name: data_dev
+  - open browser use localhost:8080
+  - use:
+    - server name: mysql
+    - username: tonysoprano
+    - pass: 12345678
+    - db name: data_dev
 
+### How to Run Tests
+
+  To run tests type: npm run test
+
+  Existing tests:
+  - src/shared/core/Guard.spec.ts
+  - src/modules/forum/domain/postSlug.spec.ts
+  - src/modules/forum/domain/services/postService.spec.ts
+
+  The existing tests verify some services in the domain layer. The domain layer has no dependency on the other layers, so there is no need for mocking. The tests can be executed without any dependencies (e.g., database, etc.)
+
+  
