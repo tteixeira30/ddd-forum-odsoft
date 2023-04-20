@@ -456,4 +456,6 @@ Examples of using the API (without authentication, using postman)
 
   The existing tests verify some services in the domain layer. The domain layer has no dependency on the other layers, so there is no need for mocking. The tests can be executed without any dependencies (e.g., database, etc.)
 
-  
+### How to Debug
+
+  - To debug the backend execute the launch.json (.vscode/launch.json)
