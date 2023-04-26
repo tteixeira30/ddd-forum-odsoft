@@ -77,6 +77,36 @@ Examples of using the API (without authentication, using postman)
 
   - Get comments by slug:
   GET http://localhost:5001/api/v1/comments/?slug=9526372-gosto-muito-de-dd
+
+  - Login
+  POST http://localhost:5001/api/v1/users/login
+  body:
+  {
+    "username": "user",
+    "password": "password"
+  }
+  return:
+  {
+    "accessToken": "...",
+    "refreshToken": "..."
+  }
+  You can then use the "accessToken" for actions that require authentication, by passing the value of the accessToken in a header named "Authentication". For example:
+  - Get Me
+  GET http://localhost:5001/api/v1/users/me
+    Headers[
+      ...
+      Autorization: accessToken
+    ]
+  Response:
+  {
+    "user": {
+        "username": "atb",
+        "isEmailVerified": false,
+        "isAdminUser": false,
+        "isDeleted": false
+    }
+  }
+
 ### How to Admin da database
   
   - open browser use localhost:8080
