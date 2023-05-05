@@ -58,7 +58,9 @@ You can visit the app by going to `http://localhost:3000`.
 
 ## Technical Notes (ISEP)
 
-### Requirements - Very Important!
+### Tool Dependencies - Very Important!
+
+  This project requires the following tools to be present in your system.
 
   **Use node version 12.22.12**
 
@@ -66,7 +68,7 @@ You can visit the app by going to `http://localhost:3000`.
   You an use **nvm** to manage several node version in your system (see https://github.com/nvm-sh/nvm)
 
   **Python**
-  You may have to install **python** in your system (see https://www.python.org/)
+  You may have to install **python v2.7** in your system (see https://www.python.org/)
 ### Using the API
 
 Examples of using the API (without authentication, using postman)
