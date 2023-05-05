@@ -19,6 +19,10 @@
 
 DDDForum.com is the application that we build in [solidbook.io - The Software Design and Architecture Handbook](https://solidbook.io). 
 
+## Switch-QA Team's Project Technical Documentation  
+
+You may find a template for the project technical documentation in [docs/readme.md](docs/readme.md)
+You should follow this examples as a template for your own work.
 ## Documentation
 
 [Original Readme file](README-original.md)
