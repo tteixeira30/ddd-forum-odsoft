@@ -58,10 +58,15 @@ You can visit the app by going to `http://localhost:3000`.
 
 ## Technical Notes (ISEP)
 
-### Requirements
+### Requirements - Very Important!
 
-  *Use node version 12.22.12*
+  **Use node version 12.22.12**
 
+  The use of this node version is mandatory
+  You an use **nvm** to manage several node version in your system (see https://github.com/nvm-sh/nvm)
+
+  **Python**
+  You may have to install **python** in your system (see https://www.python.org/)
 ### Using the API
 
 Examples of using the API (without authentication, using postman)
