@@ -145,3 +145,4 @@ Examples of using the API (without authentication, using postman)
   - start the front-end with *npm run  start:public*
   - open in browser: *localhost:3000*
  
+ 
