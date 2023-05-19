@@ -106,7 +106,7 @@ Examples of using the API (without authentication, using postman)
   GET http://localhost:5001/api/v1/users/me
     Headers[
       ...
-      Autorization: accessToken
+      Authorization: accessToken
     ]
   Response:
   {
@@ -145,3 +145,7 @@ Examples of using the API (without authentication, using postman)
   - start the front-end with *npm run  start:public*
   - open in browser: *localhost:3000*
  
+### Functional Tests (End-to-End)
+
+  Use: npm run test -- --runInBand
+  
