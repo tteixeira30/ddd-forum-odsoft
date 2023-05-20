@@ -131,7 +131,7 @@ Examples of using the API (without authentication, using postman)
 
   To run tests type: npm run test
 
-  Existing tests:
+  Existing unit tests:
   - src/shared/core/Guard.spec.ts
   - src/modules/forum/domain/postSlug.spec.ts
   - src/modules/forum/domain/services/postService.spec.ts
@@ -145,7 +145,20 @@ Examples of using the API (without authentication, using postman)
   - start the front-end with *npm run  start:public*
   - open in browser: *localhost:3000*
  
-### Functional Tests (End-to-End)
+### API Tests
 
-  Use: npm run test -- --runInBand
+  These tests are not part of the base project. They were added by the team to test the API. The tests are in the folder *src/api_test*.
+
+  The tests are based on the project https://github.com/jmfiola/jest-api-test-typescript-example. The tests are executed against the running docker containers as well as the backend. These must be running. It is not necessary to execute the fronend to run these tests. The tests are executed in sequence, so they are not independent. The tests are executed in the order they are defined in the file (this is why we need to use the *--runInBand* jest option).
+
+  To run all types of tests:
+
+    npm run test -- --runInBand
   
+  To run only API tests:
+  
+    npm run test -- --runInBand --testPathPattern=api
+
+  To run only unit tests:
+
+    npm run test -- --testPathIgnorePatterns=api

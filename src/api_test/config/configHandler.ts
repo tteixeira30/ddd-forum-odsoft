@@ -1,3 +1,8 @@
+/**
+ *
+ * @remarks
+ * The tests are based on the project {@link https://github.com/jmfiola/jest-api-test-typescript-example}.
+*/
 import { readFileSync } from "fs";
 import { TLogLevelName } from "tslog";
 
@@ -33,7 +38,7 @@ export class ConfigHandler {
   private setCommonConfig(): void {
     try {
       this.commonConfig = YAML.parse(
-        readFileSync("src/api_test/config/config.yaml", "utf8")
+        readFileSync("src/api_test/config/config-api.yaml", "utf8")
       ).common;
     } catch (error) {
       throw Error(`Error reading common config: (${error})`);
@@ -44,7 +49,7 @@ export class ConfigHandler {
     this.ensureEnvironmentIsValid(environment);
     try {
       this.environmnetConfig = YAML.parse(
-        readFileSync("src/api_test/config/config.yaml", "utf8")
+        readFileSync("src/api_test/config/config-api.yaml", "utf8")
       )[environment];
     } catch (error) {
       throw Error(`Error reading environment config: (${error})`);

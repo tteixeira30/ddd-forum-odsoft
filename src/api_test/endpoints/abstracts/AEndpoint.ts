@@ -1,6 +1,6 @@
 import { Logger } from "tslog";
 
-import ConfigHandler from "../../config/configHandler";
+import ConfigHandler from "../../config/ConfigHandler";
 import  { RestClient }  from "../../restClient/RestClient";
 
 export abstract class AEndpoint {

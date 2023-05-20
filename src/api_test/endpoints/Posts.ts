@@ -1,8 +1,8 @@
 import { AxiosResponse } from "axios";
 
-import { AAPIEndpoint } from "./abstracts/AAPIEndpoint";
+import { AEndpoint } from "./abstracts/AEndpoint";
  
-export default class Posts extends AAPIEndpoint {
+export default class Posts extends AEndpoint {
   constructor() {
     super("/posts", "posts");
   }

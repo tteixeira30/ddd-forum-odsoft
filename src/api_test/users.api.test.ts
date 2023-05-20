@@ -1,5 +1,20 @@
+/**
+ *
+ * @remarks
+ * This code is based on the project {@link https://github.com/jmfiola/jest-api-test-typescript-example}.
+*/
+import { Logger } from "tslog";
+import ConfigHandler from "./config/ConfigHandler";
 
 import Users from "./endpoints/Users";
+
+const config = ConfigHandler.getInstance();
+const log = new Logger({
+  minLevel: config.environmnetConfig.log_level,
+  dateTimeTimezone:
+    config.environmnetConfig.time_zone ||
+    Intl.DateTimeFormat().resolvedOptions().timeZone,
+});
 
 let users: Users;
 
@@ -10,7 +25,8 @@ describe("ddd-forum endpoint", (): void => {
   beforeAll(async (): Promise<void> => {
     users = new Users();
     
-    console.log("1. Users Base url: " + users.getBaseUrl());
+    log.debug("1. Users Base url: " + users.getBaseUrl());
+    //console.log("1. Users Base url: " + users.getBaseUrl());
   });
   it("Post Login", async (): Promise<void> => {
     const response = await users.postLogin();
@@ -34,7 +50,8 @@ describe("ddd-forum endpoint", (): void => {
   });
 
   it("Get Me", async (): Promise<void> => {
-    console.log("Access token: " + accessToken);
+    log.debug("Access token: " + accessToken);
+    //console.log("Access token: " + accessToken);
 
     const response = await users.getMe(accessToken);
     expect(response.status).toBe(200);

@@ -1,12 +1,23 @@
 import { AxiosResponse } from "axios";
 
-import { AAPIEndpoint } from "./abstracts/AAPIEndpoint";
+/**
+ *
+ * @remarks
+ * This code is based on the project {@link https://github.com/jmfiola/jest-api-test-typescript-example}.
+*/
+import { AEndpoint } from "./abstracts/AEndpoint";
  
-export default class Users extends AAPIEndpoint {
+export default class Users extends AEndpoint {
   constructor() {
     super("/users", "users");
   }
 
+  /**
+   * This method is used to login, using the REST API.
+   * For the moment, the username and password are hardcoded. 
+   * 
+   * @returns the result of the post request. If sucessful, the response will contain an access token and refresh token.
+   */
   public async postLogin(): Promise<AxiosResponse> {
     return this.restClient.sendPost({ route: "/login", data: { username: "atb", password: "atbatb" } });
   }

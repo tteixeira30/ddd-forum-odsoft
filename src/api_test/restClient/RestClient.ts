@@ -1,3 +1,8 @@
+/**
+ *
+ * @remarks
+ * This code is based on the project {@link https://github.com/jmfiola/jest-api-test-typescript-example}.
+*/
 import axios, {
     AxiosInstance,
     AxiosRequestConfig,
@@ -9,7 +14,7 @@ import axios, {
   
   import https from "https";
   
-  import ConfigHandler from "../config/configHandler";
+  import ConfigHandler from "../config/ConfigHandler";
   
   const config = ConfigHandler.getInstance();
   const log = new Logger({
