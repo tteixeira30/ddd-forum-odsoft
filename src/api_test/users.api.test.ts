@@ -21,12 +21,11 @@ let users: Users;
 let accessToken: string;
 let refreshToken: string;
 
-describe("ddd-forum endpoint", (): void => {
+describe("Users endpoint", (): void => {
   beforeAll(async (): Promise<void> => {
     users = new Users();
     
     log.debug("1. Users Base url: " + users.getBaseUrl());
-    //console.log("1. Users Base url: " + users.getBaseUrl());
   });
   it("Post Login", async (): Promise<void> => {
     const response = await users.postLogin();
@@ -38,20 +37,10 @@ describe("ddd-forum endpoint", (): void => {
 
     accessToken = response.data.accessToken;
     refreshToken = response.data.refreshToken;
-
-    /* 
-    expect(response.data.icon_url).toBeDefined();
-    expect(response.data.id).toBeDefined();
-    expect(response.data.updated_at).toBeDefined();
-    expect(response.data.url).toBeDefined();
-    expect(response.data.value).toBeDefined();
-    expect(response.data.value).toContain("Chuck Norris");
-    */
   });
 
   it("Get Me", async (): Promise<void> => {
     log.debug("Access token: " + accessToken);
-    //console.log("Access token: " + accessToken);
 
     const response = await users.getMe(accessToken);
     expect(response.status).toBe(200);
@@ -60,19 +49,5 @@ describe("ddd-forum endpoint", (): void => {
     expect(response.data.user).toBeDefined();
     expect(response.data.user.username).toBeDefined();
     expect(response.data.user.username).toContain("atb");
-    /*
-
-    accessToken = response.data.accessToken;
-    refreshToken = response.data.refreshToken;
-    */
-
-    /* 
-    expect(response.data.icon_url).toBeDefined();
-    expect(response.data.id).toBeDefined();
-    expect(response.data.updated_at).toBeDefined();
-    expect(response.data.url).toBeDefined();
-    expect(response.data.value).toBeDefined();
-    expect(response.data.value).toContain("Chuck Norris");
-    */
   });  
 });

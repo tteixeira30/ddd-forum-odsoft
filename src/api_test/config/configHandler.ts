@@ -1,7 +1,7 @@
 /**
  *
  * @remarks
- * The tests are based on the project {@link https://github.com/jmfiola/jest-api-test-typescript-example}.
+ * This code is based on the project {@link https://github.com/jmfiola/jest-api-test-typescript-example}.
 */
 import { readFileSync } from "fs";
 import { TLogLevelName } from "tslog";

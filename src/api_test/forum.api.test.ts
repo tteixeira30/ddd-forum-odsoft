@@ -1,3 +1,8 @@
+/**
+ *
+ * @remarks
+ * This code is based on the project {@link https://github.com/jmfiola/jest-api-test-typescript-example}.
+*/
 import { Logger } from "tslog";
 import ConfigHandler from "./config/ConfigHandler";
 
@@ -13,25 +18,16 @@ const log = new Logger({
 
 let posts: Posts;
 
-describe("ddd-forum endpoint", (): void => {
+describe("Posts endpoint", (): void => {
   beforeAll(async (): Promise<void> => {
     posts = new Posts();
     
     log.debug("1. Posts Base url: "+posts.getBaseUrl());
-    //console.log("1. Posts Base url: "+posts.getBaseUrl());
   });
   it("Get popular posts", async (): Promise<void> => {
     const response = await posts.getPopularPosts();
     expect(response.status).toBe(200);
     
     expect(response.data.posts).toBeDefined();
-    /*
-    expect(response.data.icon_url).toBeDefined();
-    expect(response.data.id).toBeDefined();
-    expect(response.data.updated_at).toBeDefined();
-    expect(response.data.url).toBeDefined();
-    expect(response.data.value).toBeDefined();
-    expect(response.data.value).toContain("Chuck Norris");
-    */
   });
 });
