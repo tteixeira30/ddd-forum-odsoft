@@ -153,12 +153,12 @@ Examples of using the API (without authentication, using postman)
 
   To run all types of tests:
 
-    npm run test -- --runInBand
+    npm run test --runInBand
   
   To run only API tests:
   
-    npm run test -- --runInBand --testPathPattern=api
+    npm run test --runInBand --testPathPattern=api
 
   To run only unit tests:
 
-    npm run test -- --testPathIgnorePatterns=api
+    npm run test --testPathIgnorePatterns=api
