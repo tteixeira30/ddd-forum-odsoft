@@ -27,6 +27,13 @@ describe("Users endpoint", (): void => {
     
     log.debug("1. Users Base url: " + users.getBaseUrl());
   });
+
+  it("Post - Create User", async (): Promise<void> => {
+    const response = await users.post();
+
+    expect(response.status).toBe(200);    
+  });
+
   it("Post Login", async (): Promise<void> => {
     const response = await users.postLogin();
     expect(response.status).toBe(200);

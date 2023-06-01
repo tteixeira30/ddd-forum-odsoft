@@ -122,7 +122,8 @@ Examples of using the API (without authentication, using postman)
   
   - open browser use localhost:8080
   - use:
-    - server name: mysql
+    - system: MySQL
+    - server: mysql
     - username: tonysoprano
     - pass: 12345678
     - db name: data_dev
@@ -141,7 +142,7 @@ Examples of using the API (without authentication, using postman)
 ### How to Debug
 
   - start the services with *docker-compose up*
-  - To debug the backend in VSCode execute the launch.json (*.vscode/launch.json*)
+  - To debug the backend in VSCode go to the tab "Run and Debug", select "Debug TypeScript in Node.js" from the dropdown list and click the play button (this will execute the configuration with the same nsame that is located in the launch.json file (*.vscode/launch.json*))
   - start the front-end with *npm run  start:public*
   - open in browser: *localhost:3000*
  
@@ -149,7 +150,26 @@ Examples of using the API (without authentication, using postman)
 
   These tests are not part of the base project. They were added by the team to test the API. The tests are in the folder *src/api_test*.
 
-  The tests are based on the project https://github.com/jmfiola/jest-api-test-typescript-example. The tests are executed against the running docker containers as well as the backend. These must be running. It is not necessary to execute the fronend to run these tests. The tests are executed in sequence, so they are not independent. The tests are executed in the order they are defined in the file (this is why we need to use the *--runInBand* jest option).
+  The tests are based on the project https://github.com/jmfiola/jest-api-test-typescript-example. **The tests are executed against the running docker containers as well as the backend**. These must be running. It is not necessary to execute the frontend to run these tests. The tests are executed in sequence, so they are not independent. The tests are executed in the order they are defined in the file (this is why we need to use the *--runInBand* jest option).
+
+  Before running API tests, you must "clear" all the existing data and run the containers and the backend. This will ensure that the system is always at the same state when the tests area executed (i.e., an empty database). To do this, run the following commands:
+
+  **1. Before Running Tests**
+
+  Start the containers:
+
+    docker-compose up
+
+  Create the database:
+
+    npm run db:create:dev
+    npm run migrate:dev 
+
+  And also run the backend:
+
+    npm run start:dev
+
+  **2. Running Tests**
 
   To run all types of tests:
 
@@ -162,3 +182,16 @@ Examples of using the API (without authentication, using postman)
   To run only unit tests:
 
     npm run test --testPathIgnorePatterns=api
+
+  **3. After Running Tests**
+
+  Stop the backend by hitting Ctrl+C in the terminal where the backend is running.
+
+  Clear the database:
+
+    npm run db:delete:dev
+
+  Stop the containers:
+
+    docker-compose stop
+

@@ -26,4 +26,9 @@ export default class Users extends AEndpoint {
     return this.restClient.sendGet({ route: "/me", headers: { "Authorization": accessToken, "Accept": "application/json",
     "Content-Type": "application/json" } } );
   }  
+
+  public async post(): Promise<AxiosResponse> {
+    return this.restClient.sendPost({ route: "/", data: { username: "atb", email: "atb@isep.ipp.pt", password: "atbatb" } });
+  }
+
 }
