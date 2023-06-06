@@ -61,4 +61,17 @@ The Specification should include:
 
 ### 3.2 Sprint B
 
-_To be Announced_
+**Goal:** To document the API and implement API tests to the full set of functional endpoints (of the backend)
+
+**User Story:** As a project manager, I want the team to specify (document) the API and implement API tests
+
+The specification of the API should include for each route:
+    - the action (GET, POST, etc.)
+    - a small description
+    - parameters
+    - possible response codes and results
+    - reference to related use cases and acceptance criteria
+
+You should place the API specification in the **docs/sprintB/api** folder. Inside this folder, you should create a file for each route. The file name should be the route name, with the extension **.md**. For example, the route **/api/v1/users** should be documented in the file **docs/sprintB/api/users.md**.
+
+The implementation of the API tests should follow the examples, as described in the root **readme** file and the code, as presented in the **src/api_test** folder
