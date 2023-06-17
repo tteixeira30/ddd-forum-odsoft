@@ -7,5 +7,11 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   "roots": [
     "<rootDir>/src"
-  ]
+  ], 
+  reporters: [
+    "default",
+    ["./node_modules/jest-html-reporter", {
+      "pageTitle": "Test Report"
+    }]
+  ],
 };

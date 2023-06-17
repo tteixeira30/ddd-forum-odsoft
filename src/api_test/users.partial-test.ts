@@ -58,3 +58,5 @@ describe("Users endpoint", (): void => {
     expect(response.data.user.username).toContain("atb");
   });  
 });
+
+export default {};

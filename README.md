@@ -152,7 +152,11 @@ Examples of using the API (without authentication, using postman)
 
   The tests are based on the project https://github.com/jmfiola/jest-api-test-typescript-example. **The tests are executed against the running docker containers as well as the backend**. These must be running. It is not necessary to execute the frontend to run these tests. The tests are executed in sequence, so they are not independent. The tests are executed in the order they are defined in the file (this is why we need to use the *--runInBand* jest option).
 
-  Before running API tests, you must "clear" all the existing data and run the containers and the backend. This will ensure that the system is always at the same state when the tests area executed (i.e., an empty database). To do this, run the following commands:
+  Before running API tests, you must "clear" all the existing data and run the containers and the backend. This will ensure that the system is always at the same state when the tests area executed (i.e., an empty database). The command that runs the API tests is *npm run test:api* and it already does all the necessary steps (see the command in package.json).
+
+  **0. Add Test Report Support**
+
+  npm install jest-html-reporter@3.0.0 --save-dev
 
   **1. Before Running Tests**
 
@@ -171,27 +175,16 @@ Examples of using the API (without authentication, using postman)
 
   **2. Running Tests**
 
-  To run all types of tests:
+  **a)** To run only API tests (this will delete the database and recreate it, before running the tests; no need for step 3):
 
-    npm run test --runInBand
-  
-  To run only API tests:
-  
-    npm run test --runInBand --testPathPattern=api
+    npm run test:api
 
-  To run only unit tests:
+  A report will be generated in report.html. Coverage report will be generated in coverage/index.html. *Note that coverage report only covers code of the tests, it does not cover code of teh backend executed because we called the API.*
 
-    npm run test --testPathIgnorePatterns=api
+  **b)** To run only unit tests:
+
+    npm run test -- --testPathIgnorePatterns=api
 
   **3. After Running Tests**
 
   Stop the backend by hitting Ctrl+C in the terminal where the backend is running.
-
-  Clear the database:
-
-    npm run db:delete:dev
-
-  Stop the containers:
-
-    docker-compose stop
-

@@ -23,7 +23,8 @@
     "start": "node dist/index",
     "test": "jest",
     "test:dev": "jest --watchAll",
-    "testWithCoverage": "jest --coverage"
+    "testWithCoverage": "jest --coverage --coverageReporters=\"text\" --coverageReporters=\"html\" --coverageReporters=\"json\"",
+    "test:api": "npm run db:delete:dev && npm run db:create:dev && npm run migrate:dev && jest --coverage --coverageReporters=\"html\" --runInBand --testPathPattern=api"
   },
   "husky": {
     "hooks": {
@@ -82,14 +83,58 @@
     "slug": "^1.1.0",
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
+    "tslog": "3.2.2",
     "typescript": "^3.6.3",
     "validator": "^11.1.0",
-    "tslog": "3.2.2",
     "yaml": "^1.10.2"
   },
   "devDependencies": {
     "concurrently": "^5.0.0",
     "dotenv-cli": "^5.1.0",
-    "husky": "^4.2.3"
+    "husky": "^4.2.3",
+    "jest-html-reporter": "^3.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover"
+    ],
+    "coverageDirectory": "coverage",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporters",
+        {
+          "publicPath": "./reports",
+          "filename": "report.html",
+          "expand": true
+        }
+      ]
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
   }
 }
